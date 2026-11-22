@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВКУС — Авторская и восточная кухня с доставкой</title>
+    <!-- Подключение шрифта Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        graphite: {
+                            950: '#0b0b0e',
+                            900: '#121216',
+                            800: '#1a1a21',
+                            700: '#25252f',
+                        },
+                        amberGold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-graphite-950 text-zinc-100 font-sans antialiased selection:bg-amber-500/30 selection:text-amber-200 overflow-x-hidden">
+
+    <!-- ==================== ШАПКА САЙТА (HEADER) ==================== -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-graphite-950/85 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Логотип -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6 text-graphite-950" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-xl sm:text-2xl font-extrabold tracking-wider text-white">ВКУС</span>
+                        <span class="block text-[10px] uppercase tracking-[0.2em] text-amber-400/90 -mt-1">Гастрономия</span>
+                    </div>
+                </a>
+
+                <!-- Навигация (Десктоп) -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#hero" class="text-sm font-medium text-zinc-300 hover:text-amber-400 transition-colors">Блюдо дня</a>
+                    <a href="#menu" class="text-sm font-medium text-zinc-300 hover:text-amber-400 transition-colors">Меню</a>
+                    <a href="#about" class="text-sm font-medium text-zinc-300 hover:text-amber-400 transition-colors">О кухне</a>
+                </nav>
+
+                <!-- Кнопка корзины и мобильное меню -->
+                <div class="flex items-center gap-3">
+                    <button id="open-cart-btn" class="relative flex items-center gap-2.5 bg-graphite-800 hover:bg-graphite-700 border border-white/10 hover:border-amber-500/40 px-4 py-2.5 rounded-xl transition-all duration-200 active:scale-95">
+                        <svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span class="text-sm font-semibold text-white hidden sm:inline">Корзина</span>
+                        <span id="cart-badge" class="inline-flex items-center justify-center min-w-[22px] h-[22px] px-1.5 text-xs font-bold bg-amber-500 text-graphite-950 rounded-full transition-transform duration-200">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Мобильная навигация -->
+            <div class="flex md:hidden items-center justify-center gap-6 pb-3 pt-1 border-t border-white/5 text-xs font-medium text-zinc-400">
+                <a href="#hero" class="hover:text-amber-400 transition-colors py-1">Блюдо дня</a>
+                <a href="#menu" class="hover:text-amber-400 transition-colors py-1">Меню</a>
+                <a href="#about" class="hover:text-amber-400 transition-colors py-1">О кухне</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== ГЛАВНЫЙ ЭКРАН: БЛЮДО ДНЯ (HERO) ==================== -->
+    <section id="hero" class="relative pt-32 sm:pt-36 pb-16 sm:pb-24 overflow-hidden">
+        <!-- Фоновое теплое свечение -->
+        <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                <!-- Левая колонка: текст и кнопки -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                        Блюдо дня от шеф-повара
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+                        Плов по-фергански <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">с бараниной и зирой</span>
+                    </h1>
+
+                    <p class="text-zinc-400 text-base sm:text-lg leading-relaxed max-w-xl">
+                        Томлёный в чугунном казане рассыпчатый узгенский рис, отборная нежная баранина, сладкая жёлтая морковь, ароматная горная зира и цельная головка печёного чеснока. Подаётся с салатом ачичук.
+                    </p>
+
+                    <!-- Характеристики блюда дня -->
+                    <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-md pt-2">
+                        <div class="bg-graphite-800/80 border border-white/5 rounded-2xl p-3.5 text-center">
+                            <span class="block text-xs text-zinc-400 mb-1">Время</span>
+                            <span class="text-sm sm:text-base font-bold text-white">45 мин</span>
+                        </div>
+                        <div class="bg-graphite-800/80 border border-white/5 rounded-2xl p-3.5 text-center">
+                            <span class="block text-xs text-zinc-400 mb-1">Энергия</span>
+                            <span class="text-sm sm:text-base font-bold text-white">620 ккал</span>
+                        </div>
+                        <div class="bg-graphite-800/80 border border-white/5 rounded-2xl p-3.5 text-center">
+                            <span class="block text-xs text-zinc-400 mb-1">Порция</span>
+                            <span class="text-sm sm:text-base font-bold text-white">420 г</span>
+                        </div>
+                    </div>
+
+                    <!-- Цена и кнопки действий -->
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-4">
+                        <div class="flex items-baseline gap-2 sm:mr-2">
+                            <span class="text-3xl sm:text-4xl font-extrabold text-white">480</span>
+                            <span class="text-lg font-semibold text-amber-400">сом</span>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="addToCart(1)" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-graphite-950 font-bold px-7 py-3.5 rounded-2xl shadow-lg shadow-amber-500/25 transition-all duration-200 active:scale-95">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                                Заказать
+                            </button>
+                            <button onclick="openDishModal(1)" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-graphite-800 hover:bg-graphite-700 text-white border border-white/10 hover:border-amber-500/40 font-semibold px-6 py-3.5 rounded-2xl transition-all duration-200 active:scale-95">
+                                <svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                                Состав и рецепт
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая колонка: карточка с фото блюда дня -->
+                <div class="lg:col-span-6">
+                    <div onclick="openDishModal(1)" class="group relative rounded-3xl overflow-hidden bg-graphite-800 border border-white/10 shadow-2xl shadow-black/60 cursor-pointer">
+                        <!-- Контейнер изображения с красивым fallback-градиентом -->
+                        <div class="relative aspect-[4/3] w-full bg-gradient-to-br from-amber-900/50 via-graphite-800 to-graphite-900 flex items-center justify-center overflow-hidden">
+                            <div class="fallback-content hidden flex-col items-center justify-center text-center p-6">
+                                <span class="text-6xl mb-3">🥘</span>
+                                <span class="text-amber-300 font-semibold text-lg">Плов по-фергански</span>
+                            </div>
+                            <img 
+                                src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=1000&q=85" 
+                                alt="Плов по-фергански с бараниной и зирой"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                onerror="this.style.display='none'; this.previousElementSibling.classList.remove('hidden'); this.previousElementSibling.classList.add('flex');"
+                            >
+                            <!-- Градиентная виньетка снизу -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-graphite-950/90 via-graphite-950/20 to-transparent"></div>
+                            
+                            <!-- Бейдж рейтинга -->
+                            <div class="absolute top-4 right-4 bg-graphite-950/80 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-full flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <span class="text-sm font-bold text-white">4.9</span>
+                                <span class="text-xs text-zinc-400">(214)</span>
+                            </div>
+
+                            <!-- Нижняя подпись на карточке -->
+                            <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                                <div>
+                                    <span class="text-xs font-medium uppercase tracking-wider text-amber-400">Хит продаж • Восточная кухня</span>
+                                    <p class="text-white font-bold text-lg sm:text-xl mt-0.5">Подаётся с горячей лепёшкой и ачичуком</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== СЕКЦИЯ МЕНЮ ==================== -->
+    <section id="menu" class="py-16 sm:py-24 bg-graphite-900/50 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Заголовок и поиск -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-[0.2em]">Наша коллекция</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Меню кухни</h2>
+                </div>
+
+                <!-- Поле поиска -->
+                <div class="relative w-full md:w-80 lg:w-96">
+                    <svg class="w-5 h-5 text-zinc-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Поиск блюда или ингредиента..." 
+                        class="w-full bg-graphite-800 border border-white/10 focus:border-amber-500/60 focus:ring-2 focus:ring-amber-500/20 text-white placeholder-zinc-500 rounded-2xl pl-12 pr-10 py-3.5 text-sm outline-none transition-all"
+                    >
+                    <button id="clear-search-btn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white p-1">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Фильтры категорий -->
+            <div id="category-filters" class="flex items-center gap-2.5 overflow-x-auto pb-4 mb-8 no-scrollbar">
+                <!-- Кнопки категорий рендерятся через JS -->
+            </div>
+
+            <!-- Сетка карточек блюд -->
+            <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Карточки рендерятся через JS -->
+            </div>
+
+            <!-- Пустое состояние при отсутствии результатов -->
+            <div id="empty-state" class="hidden text-center py-16 bg-graphite-800/40 rounded-3xl border border-white/5">
+                <div class="text-5xl mb-4">🍽️</div>
+                <h3 class="text-xl font-bold text-white mb-2">Ничего не найдено</h3>
+                <p class="text-zinc-400 text-sm mb-6">Попробуйте изменить поисковый запрос или выбрать другую категорию.</p>
+                <button onclick="resetFilters()" class="bg-amber-500 hover:bg-amber-400 text-graphite-950 font-bold px-6 py-2.5 rounded-xl text-sm transition-colors">
+                    Сбросить фильтры
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== СЕКЦИЯ О КУХНЕ ==================== -->
+    <section id="about" class="py-16 sm:py-24 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-amber-400 text-xs font-bold uppercase tracking-[0.2em]">Философия вкуса</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Почему выбирают нашу кухню</h2>
+                <p class="text-zinc-400 mt-4 text-sm sm:text-base">
+                    Мы объединяем вековые традиции восточного гостеприимства и современные европейские гастрономические техники.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-graphite-800/60 border border-white/5 rounded-3xl p-7 hover:border-amber-500/30 transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-5 text-2xl">
+                        🔥
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Живой огонь и казан</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Стейки обжариваем на берёзовых углях, а плов и лагман готовим исключительно в чугунных казанах по авторским рецептам.
+                    </p>
+                </div>
+
+                <div class="bg-graphite-800/60 border border-white/5 rounded-3xl p-7 hover:border-amber-500/30 transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-5 text-2xl">
+                        🌿
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Фермерские продукты</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Каждое утро получаем свежее охлаждённое мясо, узгенский рис, горные специи и отборные овощи от проверенных хозяйств.
+                    </p>
+                </div>
+
+                <div class="bg-graphite-800/60 border border-white/5 rounded-3xl p-7 hover:border-amber-500/30 transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-5 text-2xl">
+                        🛵
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Горячая доставка</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Доставляем в термосумках за 40–55 минут, чтобы блюда приехали к вашему столу с пылу с жару. При заказе от 1500 сом — бесплатно.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ПОДВАЛ (FOOTER) ==================== -->
+    <footer class="bg-graphite-900 border-t border-white/5 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
+            <div class="flex items-center gap-2.5">
+                <span class="text-lg font-extrabold text-white tracking-wider">ВКУС</span>
+                <span>•</span>
+                <span>Авторская и восточная кухня</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <span>Ежедневно 10:00 – 23:30</span>
+                <span class="text-amber-400 font-medium">+996 (555) 12-34-56</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== МОДАЛЬНОЕ ОКНО БЛЮДА ==================== -->
+    <div id="dish-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-6">
+        <!-- Затемнение фона -->
+        <div onclick="closeDishModal()" class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity"></div>
+        
+        <!-- Контент модального окна -->
+        <div class="relative w-full max-w-3xl max-h-[90vh] bg-graphite-900 border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col z-10">
+            <!-- Кнопка закрытия -->
+            <button onclick="closeDishModal()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-graphite-950/80 hover:bg-amber-500 text-white hover:text-graphite-950 border border-white/10 flex items-center justify-center transition-colors">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Прокручиваемая область -->
+            <div id="dish-modal-body" class="overflow-y-auto flex-1">
+                <!-- Содержимое вставляется через JS -->
+            </div>
+
+            <!-- Нижняя панель с ценой и кнопкой добавления -->
+            <div id="dish-modal-footer" class="p-4 sm:p-6 bg-graphite-950/90 border-t border-white/10 flex items-center justify-between gap-4">
+                <!-- Вставляется через JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== ВЫДВИЖНАЯ КОРЗИНА (DRAWER) ==================== -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 hidden">
+        <!-- Затемнение -->
+        <div onclick="closeCart()" class="absolute inset-0 bg-black/75 backdrop-blur-sm transition-opacity"></div>
+
+        <!-- Боковая панель -->
+        <aside class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-graphite-900 border-l border-white/10 shadow-2xl flex flex-col z-10">
+            <!-- Заголовок корзины -->
+            <div class="p-5 border-b border-white/10 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <h2 class="text-xl font-bold text-white">Ваш заказ</h2>
+                    <span id="drawer-count" class="text-xs font-bold bg-amber-500/20 text-amber-400 px-2.5 py-1 rounded-full">0 шт.</span>
+                </div>
+                <button onclick="closeCart()" class="w-9 h-9 rounded-xl bg-graphite-800 hover:bg-graphite-700 text-zinc-400 hover:text-white flex items-center justify-center transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Тело корзины (товары + форма или пустое состояние / успех) -->
+            <div id="cart-content" class="flex-1 overflow-y-auto p-5 space-y-6">
+                <!-- Рендерится через JS -->
+            </div>
+
+            <!-- Футер корзины с итоговой суммой -->
+            <div id="cart-footer" class="p-5 bg-graphite-950/90 border-t border-white/10 hidden">
+                <div class="space-y-2 text-sm mb-4">
+                    <div class="flex justify-between text-zinc-400">
+                        <span>Сумма блюд</span>
+                        <span id="cart-subtotal" class="text-zinc-200 font-medium">0 сом</span>
+                    </div>
+                    <div class="flex justify-between text-zinc-400">
+                        <span>Доставка</span>
+                        <span id="cart-delivery" class="text-zinc-200 font-medium">150 сом</span>
+                    </div>
+                    <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-white/10">
+                        <span>Итого к оплате</span>
+                        <span id="cart-total" class="text-amber-400 text-lg">0 сом</span>
+                    </div>
+                </div>
+                <button type="submit" form="checkout-form" class="w-full bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-graphite-950 font-extrabold py-3.5 rounded-2xl shadow-lg shadow-amber-500/20 transition-all active:scale-[0.98]">
+                    Оформить заказ
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ==================== ВСПЛЫВАЮЩЕЕ УВЕДОМЛЕНИЕ (TOAST) ==================== -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- ==================== JAVASCRIPT ЛОГИКА ==================== -->
+    <script>
+        // База данных блюд (8 разнообразных позиций)
+        const DISHES = [
+            {
+                id: 1,
+                name: 'Плов по-фергански',
+                category: 'Восточная кухня',
+                price: 480,
+                weight: '420 г',
+                time: '45 мин',
+                rating: 4.9,
+                emoji: '🥘',
+                gradient: 'from-amber-900/60 via-orange-950/50 to-graphite-900',
+                image: 'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=800&q=80',
+                description: 'Классический рассыпчатый плов из отборного узгенского риса, нежной баранины, жёлтой моркови и ароматной зиры. Томится в казане с цельной головкой чеснока.',
+                ingredients: ['Баранина', 'Узгенский рис', 'Жёлтая морковь', 'Лук репчатый', 'Горная зира', 'Чеснок', 'Курдючный жир', 'Барбарис'],
+                kbzhu: { kcal: 620, protein: 28, fat: 31, carbs: 56 },
+                recipe: [
+                    'Разогрейте казан, вытопите курдючный жир и обжарьте лук до золотистого оттенка.',
+                    'Добавьте крупные кусочки баранины и обжаривайте на сильном огне до румяной корочки.',
+                    'Выложите соломку из жёлтой моркови, добавьте зиру, барбарис и залейте горячей водой для зирвака.',
+                    'Погрузите целую головку чеснока, томите 35 минут, затем равномерно выложите промытый рис.',
+                    'Выпарите воду, соберите рис горкой и томите под плотной крышкой на минимальном огне 20 минут.'
+                ]
+            },
+            {
+                id: 2,
+                name: 'Манты с рубленой говядиной',
+                category: 'Восточная кухня',
+                price: 390,
+                weight: '350 г (5 шт.)',
+                time: '30 мин',
+                rating: 4.8,
+                emoji: '🥟',
+                gradient: 'from-stone-800/80 via-amber-950/40 to-graphite-900',
+                image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80',
+                description: 'Тончайшее эластичное тесто, сочная начинка из вручную рубленной говядины с репчатым луком и щепоткой чёрного перца. Приготовлены на пару.',
+                ingredients: ['Говядина рубленная', 'Лук репчатый', 'Пшеничная мука', 'Курдюк', 'Чёрный перец', 'Зира', 'Сметана'],
+                kbzhu: { kcal: 540, protein: 26, fat: 24, carbs: 52 },
+                recipe: [
+                    'Замесите крутое пресное тесто из муки, воды, яйца и соли, дайте ему отдохнуть 20 минут.',
+                    'Мелко нарубите ножом говядину, курдюк и лук, приправьте солью, перцем и зирой.',
+                    'Раскатайте тесто в тонкие квадраты, выложите сочную начинку и аккуратно защипните края.',
+                    'Смажьте ярусы мантоварки маслом и готовьте манты на пару 35–40 минут.'
+                ]
+            },
+            {
+                id: 3,
+                name: 'Бешбармак классический',
+                category: 'Восточная кухня',
+                price: 590,
+                weight: '480 г',
+                time: '40 мин',
+                rating: 4.9,
+                emoji: '🍲',
+                gradient: 'from-yellow-900/50 via-stone-900 to-graphite-900',
+                image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80',
+                description: 'Традиционное праздничное блюдо из нежнейшей томлёной конины и говядины, домашней тонкой лапши и пряного лукового соуса чык. Подаётся с ароматным сорпо.',
+                ingredients: ['Говядина', 'Конина (чучук)', 'Домашняя лапша', 'Лук кольцами', 'Крепкий бульон', 'Чёрный перец', 'Свежая зелень'],
+                kbzhu: { kcal: 690, protein: 38, fat: 34, carbs: 54 },
+                recipe: [
+                    'Отварите мясо на медленном огне в течение 3 часов со специями, снимая пену для прозрачного бульона.',
+                    'Нарежьте лук тонкими полукольцами и припустите его в горячем жирном бульоне с перцем (соус чык).',
+                    'Отварите домашние ромбики теста в мясном бульоне до готовности.',
+                    'Выложите лапшу на широкое блюдо, сверху распределите мелко нарезанное мясо и полейте соусом чык.'
+                ]
+            },
+            {
+                id: 4,
+                name: 'Уйгурский лагман',
+                category: 'Восточная кухня',
+                price: 420,
+                weight: '450 г',
+                time: '35 мин',
+                rating: 4.8,
+                emoji: '🍜',
+                gradient: 'from-red-900/60 via-amber-950/50 to-graphite-900',
+                image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80',
+                description: 'Тянутая вручную упругая лапша в насыщенной подливе сай из обжаренной говядины, джусая, болгарского перца, стручковой фасоли и спелых томатов.',
+                ingredients: ['Тянутая лапша', 'Говядина', 'Болгарский перец', 'Джусай', 'Стручковая фасоль', 'Томаты', 'Чеснок', 'Соевый соус'],
+                kbzhu: { kcal: 560, protein: 27, fat: 22, carbs: 63 },
+                recipe: [
+                    'Вытяните заранее подготовленное тесто в длинную тонкую лапшу и отварите в подсоленной воде.',
+                    'В раскалённом воке быстро обжарьте тонкие ломтики говядины с чесноком и соевым соусом.',
+                    'Добавьте нарезанный перец, фасоль, томаты и джусай, обжаривайте 5 минут до лёгкого хруста овощей.',
+                    'Влейте немного бульона, доведите до кипения и выложите горячую подливу поверх лапши.'
+                ]
+            },
+            {
+                id: 5,
+                name: 'Стейк Рибай на углях',
+                category: 'Горячее',
+                price: 1350,
+                weight: '320 г',
+                time: '25 мин',
+                rating: 5.0,
+                emoji: '🥩',
+                gradient: 'from-rose-950/70 via-stone-900 to-graphite-900',
+                image: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&q=80',
+                description: 'Сочный мраморный стейк зернового откорма прожарки Medium с хрустящей корочкой, ароматным сливочным маслом с розмарином и перечным соусом.',
+                ingredients: ['Мраморная говядина Рибай', 'Сливочное масло', 'Свежий розмарин', 'Чеснок', 'Морская соль', 'Смесь перцев', 'Соус Демиглас'],
+                kbzhu: { kcal: 740, protein: 52, fat: 58, carbs: 2 },
+                recipe: [
+                    'Доведите стейк до комнатной температуры, обсушите бумажным полотенцем и смажьте маслом.',
+                    'Обжарьте мясо на раскалённой решётке гриля по 3 минуты с каждой стороны для прожарки Medium.',
+                    'В конце добавьте кусочек сливочного масла, веточку розмарина и раздавленный чеснок.',
+                    'Дайте стейку отдохнуть под фольгой 5 минут, посыпьте крупной морской солью и подавайте.'
+                ]
+            },
+            {
+                id: 6,
+                name: 'Паста с лососем в сливочном соусе',
+                category: 'Горячее',
+                price: 560,
+                weight: '340 г',
+                time: '20 мин',
+                rating: 4.7,
+                emoji: '🍝',
+                gradient: 'from-orange-900/50 via-amber-950/40 to-graphite-900',
+                image: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=800&q=80',
+                description: 'Итальянские тальятелле аль денте с филе норвежского лосося, нежным сливочным соусом, сыром пармезан, шпинатом и капелькой лимонной цедры.',
+                ingredients: ['Тальятелле', 'Филе лосося', 'Сливки 33%', 'Сыр Пармезан', 'Свежий шпинат', 'Чеснок', 'Цедра лимона'],
+                kbzhu: { kcal: 610, protein: 29, fat: 33, carbs: 49 },
+                recipe: [
+                    'Отварите пасту тальятелле в подсоленной воде до состояния аль денте.',
+                    'Слегка обжарьте кубики свежего лосося на оливковом масле с зубчиком чеснока.',
+                    'Влейте жирные сливки, добавьте листья шпината и томите соус 3 минуты до загустения.',
+                    'Перемешайте пасту с соусом, посыпьте тёртым пармезаном и свежей цедрой лимона.'
+                ]
+            },
+            {
+                id: 7,
+                name: 'Чизкейк Сан-Себастьян',
+                category: 'Десерты',
+                price: 340,
+                weight: '180 г',
+                time: '15 мин',
+                rating: 4.9,
+                emoji: '🍰',
+                gradient: 'from-amber-800/50 via-yellow-950/40 to-graphite-900',
+                image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80',
+                description: 'Легендарный баскский чизкейк с карамелизированной корочкой и невероятно нежной кремовой сердцевиной. Подаётся с тёплым бельгийским шоколадом.',
+                ingredients: ['Сливочный сыр', 'Сливки 33%', 'Яйца', 'Сахар', 'Стручковая ваниль', 'Бельгийский шоколад'],
+                kbzhu: { kcal: 460, protein: 9, fat: 32, carbs: 34 },
+                recipe: [
+                    'Взбейте сливочный сыр комнатной температуры с сахаром и натуральной ванилью до гладкости.',
+                    'По одному введите яйца, затем аккуратно вмешайте жирные сливки и щепотку муки.',
+                    'Выпекайте при высокой температуре (220°C) 25–30 минут до характерной тёмно-карамельной корочки.',
+                    'Охладите десерт в холодильнике не менее 6 часов и подавайте с растопленным шоколадом.'
+                ]
+            },
+            {
+                id: 8,
+                name: 'Облепиховый чай с мёдом и имбирём',
+                category: 'Напитки',
+                price: 260,
+                weight: '600 мл',
+                time: '10 мин',
+                rating: 4.9,
+                emoji: '🫖',
+                gradient: 'from-amber-600/40 via-orange-900/50 to-graphite-900',
+                image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80',
+                description: 'Витаминный согревающий чай из протёртой иссык-кульской облепихи, горного цветочного мёда, свежего корня имбиря, апельсина и веточки мяты.',
+                ingredients: ['Иссык-кульская облепиха', 'Горный мёд', 'Корень имбиря', 'Апельсин', 'Свежая мята', 'Палочка корицы'],
+                kbzhu: { kcal: 165, protein: 1, fat: 3, carbs: 34 },
+                recipe: [
+                    'Разомните свежие ягоды облепихи в чайнике, чтобы они полностью отдали сок и аромат.',
+                    'Добавьте тонкие ломтики свежего имбиря, дольки апельсина, корицу и веточку мяты.',
+                    'Залейте горячей водой (85–90°C), дайте настояться 5 минут, затем растворите натуральный горный мёд.'
+                ]
+            }
+        ];
+
+        const CATEGORIES = ['Все', 'Восточная кухня', 'Горячее', 'Десерты', 'Напитки'];
+        const FREE_DELIVERY_THRESHOLD = 1500;
+        const DELIVERY_FEE = 150;
+
+        // Состояние приложения
+        let state = {
+            activeCategory: 'Все',
+            searchQuery: '',
+            cart: [], // [{ dishId, quantity }]
+            orderSuccess: false
+        };
+
+        // DOM-элементы
+        const categoryFiltersEl = document.getElementById('category-filters');
+        const menuGridEl = document.getElementById('menu-grid');
+        const emptyStateEl = document.getElementById('empty-state');
+        const searchInputEl = document.getElementById('search-input');
+        const clearSearchBtn = document.getElementById('clear-search-btn');
+        const cartBadgeEl = document.getElementById('cart-badge');
+        const dishModalEl = document.getElementById('dish-modal');
+        const dishModalBodyEl = document.getElementById('dish-modal-body');
+        const dishModalFooterEl = document.getElementById('dish-modal-footer');
+        const cartDrawerEl = document.getElementById('cart-drawer');
+        const cartContentEl = document.getElementById('cart-content');
+        const cartFooterEl = document.getElementById('cart-footer');
+        const drawerCountEl = document.getElementById('drawer-count');
+        const cartSubtotalEl = document.getElementById('cart-subtotal');
+        const cartDeliveryEl = document.getElementById('cart-delivery');
+        const cartTotalEl = document.getElementById('cart-total');
+        const toastContainerEl = document.getElementById('toast-container');
+
+        // ==================== РЕНДЕР КАТЕГОРИЙ ====================
+        function renderCategories() {
+            categoryFiltersEl.innerHTML = CATEGORIES.map(cat => {
+                const isActive = state.activeCategory === cat;
+                const activeClasses = 'bg-amber-500 text-graphite-950 font-bold shadow-lg shadow-amber-500/20 border-amber-500';
+                const inactiveClasses = 'bg-graphite-800/80 text-zinc-300 hover:text-white hover:bg-graphite-700 border-white/10';
+                return `
+                    <button 
+                        onclick="selectCategory('${cat}')"
+                        class="whitespace-nowrap px-5 py-2.5 rounded-xl text-sm border transition-all duration-200 active:scale-95 ${isActive ? activeClasses : inactiveClasses}"
+                    >
+                        ${cat}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function selectCategory(category) {
+            state.activeCategory = category;
+            renderCategories();
+            renderMenu();
+        }
+
+        function resetFilters() {
+            state.activeCategory = 'Все';
+            state.searchQuery = '';
+            searchInputEl.value = '';
+            clearSearchBtn.classList.add('hidden');
+            renderCategories();
+            renderMenu();
+        }
+
+        // ==================== РЕНДЕР МЕНЮ ====================
+        function renderMenu() {
+            const query = state.searchQuery.trim().toLowerCase();
+            const filtered = DISHES.filter(dish => {
+                const matchesCategory = state.activeCategory === 'Все' || dish.category === state.activeCategory;
+                const matchesQuery = !query || 
+                    dish.name.toLowerCase().includes(query) ||
+                    dish.description.toLowerCase().includes(query) ||
+                    dish.ingredients.some(ing => ing.toLowerCase().includes(query));
+                return matchesCategory && matchesQuery;
+            });
+
+            if (filtered.length === 0) {
+                menuGridEl.innerHTML = '';
+                emptyStateEl.classList.remove('hidden');
+                return;
+            }
+
+            emptyStateEl.classList.add('hidden');
+            menuGridEl.innerHTML = filtered.map(dish => `
+                <article 
+                    onclick="openDishModal(${dish.id})"
+                    class="group bg-graphite-800/80 hover:bg-graphite-800 border border-white/5 hover:border-amber-500/30 rounded-3xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50 cursor-pointer"
+                >
+                    <!-- Изображение с надежным fallback-градиентом -->
+                    <div class="relative aspect-[4/3] w-full bg-gradient-to-br ${dish.gradient} flex items-center justify-center overflow-hidden">
+                        <div class="fallback-ui hidden flex-col items-center justify-center text-center p-4">
+                            <span class="text-5xl mb-2">${dish.emoji}</span>
+                            <span class="text-xs font-semibold text-amber-300/90 uppercase tracking-wider">${dish.category}</span>
+                        </div>
+                        <img 
+                            src="${dish.image}" 
+                            alt="${dish.name}"
+                            loading="lazy"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            onerror="this.style.display='none'; this.previousElementSibling.classList.remove('hidden'); this.previousElementSibling.classList.add('flex');"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-graphite-900/80 via-transparent to-transparent"></div>
+                        
+                        <!-- Категория -->
+                        <span class="absolute top-3 left-3 bg-graphite-950/75 backdrop-blur-md text-[11px] font-semibold text-zinc-200 px-3 py-1 rounded-full border border-white/10">
+                            ${dish.category}
+                        </span>
+
+                        <!-- Рейтинг -->
+                        <div class="absolute top-3 right-3 bg-graphite-950/75 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5 text-amber-400 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <span class="text-xs font-bold text-white">${dish.rating.toFixed(1)}</span>
+                        </div>
+                    </div>
+
+                    <!-- Контент карточки -->
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors leading-snug">
+                                ${dish.name}
+                            </h3>
+                        </div>
+
+                        <p class="text-zinc-400 text-xs sm:text-sm line-clamp-2 mb-4 flex-1">
+                            ${dish.description}
+                        </p>
+
+                        <div class="flex items-center justify-between text-xs text-zinc-500 mb-4 pb-3 border-b border-white/5">
+                            <span>${dish.weight}</span>
+                            <span>${dish.kbzhu.kcal} ккал</span>
+                        </div>
+
+                        <div class="flex items-center justify-between gap-3 mt-auto">
+                            <div>
+                                <span class="text-xl font-extrabold text-white">${dish.price}</span>
+                                <span class="text-sm font-semibold text-amber-400 ml-0.5">сом</span>
+                            </div>
+                            <button 
+                                onclick="event.stopPropagation(); addToCart(${dish.id});"
+                                class="inline-flex items-center gap-1.5 bg-amber-500/15 hover:bg-amber-500 text-amber-400 hover:text-graphite-950 border border-amber-500/30 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition-all duration-200 active:scale-95"
+                            >
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                </svg>
+                                В корзину
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // ==================== МОДАЛЬНОЕ ОКНО БЛЮДА ====================
+        function openDishModal(dishId) {
+            const dish = DISHES.find(d => d.id === dishId);
+            if (!dish) return;
+
+            dishModalBodyEl.innerHTML = `
+                <!-- Шапка фото -->
+                <div class="relative h-60 sm:h-72 w-full bg-gradient-to-br ${dish.gradient} flex items-center justify-center overflow-hidden">
+                    <div class="fallback-modal hidden flex-col items-center justify-center text-center">
+                        <span class="text-7xl mb-2">${dish.emoji}</span>
+                        <span class="text-amber-300 font-semibold">${dish.name}</span>
+                    </div>
+                    <img 
+                        src="${dish.image}" 
+                        alt="${dish.name}"
+                        class="w-full h-full object-cover"
+                        onerror="this.style.display='none'; this.previousElementSibling.classList.remove('hidden'); this.previousElementSibling.classList.add('flex');"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-graphite-900 via-graphite-900/20 to-transparent"></div>
+                    <div class="absolute bottom-4 left-5 right-5">
+                        <span class="inline-block bg-amber-500 text-graphite-950 text-xs font-extrabold px-3 py-1 rounded-full mb-2">
+                            ${dish.category}
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">${dish.name}</h2>
+                    </div>
+                </div>
+
+                <!-- Детали -->
+                <div class="p-5 sm:p-7 space-y-6">
+                    <!-- Метаданные -->
+                    <div class="flex flex-wrap items-center gap-4 text-sm text-zinc-400">
+                        <span class="flex items-center gap-1.5 text-white font-semibold">
+                            <svg class="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            ${dish.rating.toFixed(1)}
+                        </span>
+                        <span>•</span>
+                        <span>Вес: <strong class="text-zinc-200">${dish.weight}</strong></span>
+                        <span>•</span>
+                        <span>Приготовление: <strong class="text-zinc-200">${dish.time}</strong></span>
+                    </div>
+
+                    <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                        ${dish.description}
+                    </p>
+
+                    <!-- Блок КБЖУ -->
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3">Пищевая ценность (на порцию)</h3>
+                        <div class="grid grid-cols-4 gap-2.5 sm:gap-3">
+                            <div class="bg-graphite-800 border border-white/5 rounded-2xl p-3 text-center">
+                                <span class="block text-lg sm:text-xl font-extrabold text-amber-400">${dish.kbzhu.kcal}</span>
+                                <span class="text-[11px] text-zinc-400">ккал</span>
+                            </div>
+                            <div class="bg-graphite-800 border border-white/5 rounded-2xl p-3 text-center">
+                                <span class="block text-lg sm:text-xl font-extrabold text-white">${dish.kbzhu.protein}г</span>
+                                <span class="text-[11px] text-zinc-400">белки</span>
+                            </div>
+                            <div class="bg-graphite-800 border border-white/5 rounded-2xl p-3 text-center">
+                                <span class="block text-lg sm:text-xl font-extrabold text-white">${dish.kbzhu.fat}г</span>
+                                <span class="text-[11px] text-zinc-400">жиры</span>
+                            </div>
+                            <div class="bg-graphite-800 border border-white/5 rounded-2xl p-3 text-center">
+                                <span class="block text-lg sm:text-xl font-extrabold text-white">${dish.kbzhu.carbs}г</span>
+                                <span class="text-[11px] text-zinc-400">углеводы</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ингредиенты -->
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3">Состав и ингредиенты</h3>
+                        <div class="flex flex-wrap gap-2">
+                            ${dish.ingredients.map(ing => `
+                                <span class="bg-graphite-800 border border-white/10 text-zinc-200 text-xs sm:text-sm px-3.5 py-1.5 rounded-xl">
+                                    ${ing}
+                                </span>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Пошаговый рецепт -->
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3">Как мы готовим (краткий рецепт)</h3>
+                        <ol class="space-y-3">
+                            ${dish.recipe.map((step, idx) => `
+                                <li class="flex items-start gap-3 text-sm text-zinc-300 leading-relaxed">
+                                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-amber-500/15 text-amber-400 font-bold text-xs flex items-center justify-center mt-0.5">
+                                        ${idx + 1}
+                                    </span>
+                                    <span>${step}</span>
+                                </li>
+                            `).join('')}
+                        </ol>
+                    </div>
+                </div>
+            `;
+
+            dishModalFooterEl.innerHTML = `
+                <div>
+                    <span class="block text-xs text-zinc-400">Стоимость</span>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-2xl sm:text-3xl font-extrabold text-white">${dish.price}</span>
+                        <span class="text-base font-semibold text-amber-400">сом</span>
+                    </div>
+                </div>
+                <button 
+                    onclick="addToCart(${dish.id}); closeDishModal();"
+                    class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-graphite-950 font-extrabold px-6 sm:px-8 py-3.5 rounded-2xl shadow-lg shadow-amber-500/20 transition-all active:scale-95"
+                >
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Добавить в корзину
+                </button>
+            `;
+
+            dishModalEl.classList.remove('hidden');
+            dishModalEl.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeDishModal() {
+            dishModalEl.classList.add('hidden');
+            dishModalEl.classList.remove('flex');
+            if (cartDrawerEl.classList.contains('hidden')) {
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        // ==================== КОРЗИНА (CART LOGIC) ====================
+        function addToCart(dishId) {
+            state.orderSuccess = false;
+            const existing = state.cart.find(item => item.dishId === dishId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                state.cart.push({ dishId, quantity: 1 });
+            }
+            const dish = DISHES.find(d => d.id === dishId);
+            updateCartBadge();
+            renderCart();
+            showToast(`«${dish.name}» добавлено в корзину`);
+        }
+
+        function updateQuantity(dishId, delta) {
+            const itemIndex = state.cart.findIndex(item => item.dishId === dishId);
+            if (itemIndex === -1) return;
+
+            state.cart[itemIndex].quantity += delta;
+            if (state.cart[itemIndex].quantity <= 0) {
+                state.cart.splice(itemIndex, 1);
+            }
+            updateCartBadge();
+            renderCart();
+        }
+
+        function removeFromCart(dishId) {
+            state.cart = state.cart.filter(item => item.dishId !== dishId);
+            updateCartBadge();
+            renderCart();
+        }
+
+        function updateCartBadge() {
+            const totalItems = state.cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartBadgeEl.textContent = totalItems;
+            drawerCountEl.textContent = `${totalItems} шт.`;
+
+            // Анимация пульсации счетчика
+            cartBadgeEl.classList.add('scale-125');
+            setTimeout(() => cartBadgeEl.classList.remove('scale-125'), 200);
+        }
+
+        function openCart() {
+            renderCart();
+            cartDrawerEl.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeCart() {
+            cartDrawerEl.classList.add('hidden');
+            if (dishModalEl.classList.contains('hidden')) {
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        function renderCart() {
+            // Состояние успешного заказа
+            if (state.orderSuccess) {
+                cartFooterEl.classList.add('hidden');
+                cartContentEl.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-10 px-4">
+                        <div class="w-20 h-20 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mb-5">
+                            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-white mb-2">Заказ принят!</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                            Спасибо за заказ в <strong class="text-amber-400">ВКУС</strong>! Наш повар уже приступил к приготовлению. Курьер свяжется с вами в ближайшее время.
+                        </p>
+                        <button onclick="state.orderSuccess = false; closeCart();" class="bg-graphite-800 hover:bg-graphite-700 text-white font-semibold px-6 py-3 rounded-xl border border-white/10 transition-colors">
+                            Вернуться в меню
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            // Пустая корзина
+            if (state.cart.length === 0) {
+                cartFooterEl.classList.add('hidden');
+                cartContentEl.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12 px-4">
+                        <div class="w-16 h-16 rounded-2xl bg-graphite-800 border border-white/5 flex items-center justify-center text-3xl mb-4">
+                            🛍️
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-1">Корзина пока пуста</h3>
+                        <p class="text-zinc-400 text-sm mb-6">Выберите аппетитные блюда из нашего меню.</p>
+                        <button onclick="closeCart()" class="bg-amber-500 hover:bg-amber-400 text-graphite-950 font-bold px-6 py-3 rounded-xl text-sm transition-colors">
+                            Перейти к меню
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            // Подсчёт сумм
+            let subtotal = 0;
+            const itemsHtml = state.cart.map(item => {
+                const dish = DISHES.find(d => d.id === item.dishId);
+                if (!dish) return '';
+                const lineTotal = dish.price * item.quantity;
+                subtotal += lineTotal;
+
+                return `
+                    <div class="flex items-center gap-3.5 bg-graphite-800/70 border border-white/5 p-3 rounded-2xl">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br ${dish.gradient} flex-shrink-0 overflow-hidden flex items-center justify-center">
+                            <span class="fallback-thumb hidden text-2xl">${dish.emoji}</span>
+                            <img 
+                                src="${dish.image}" 
+                                alt="${dish.name}" 
+                                class="w-full h-full object-cover"
+                                onerror="this.style.display='none'; this.previousElementSibling.classList.remove('hidden');"
+                            >
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-white truncate">${dish.name}</h4>
+                            <span class="text-xs text-zinc-400">${dish.price} сом • ${dish.weight}</span>
+                            <div class="flex items-center justify-between mt-2">
+                                <div class="inline-flex items-center gap-2 bg-graphite-900 border border-white/10 rounded-lg p-0.5">
+                                    <button onclick="updateQuantity(${dish.id}, -1)" class="w-7 h-7 rounded-md hover:bg-graphite-700 text-zinc-300 hover:text-white flex items-center justify-center font-bold transition-colors">−</button>
+                                    <span class="text-xs font-bold text-white min-w-[16px] text-center">${item.quantity}</span>
+                                    <button onclick="updateQuantity(${dish.id}, 1)" class="w-7 h-7 rounded-md hover:bg-graphite-700 text-zinc-300 hover:text-white flex items-center justify-center font-bold transition-colors">+</button>
+                                </div>
+                                <span class="text-sm font-bold text-amber-400">${lineTotal} сом</span>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${dish.id})" title="Удалить" class="text-zinc-500 hover:text-rose-400 p-1.5 transition-colors self-start">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            const deliveryCost = subtotal >= FREE_DELIVERY_THRESHOLD ? 0 : DELIVERY_FEE;
+            const total = subtotal + deliveryCost;
+            const remainingForFree = FREE_DELIVERY_THRESHOLD - subtotal;
+
+            cartContentEl.innerHTML = `
+                <!-- Список блюд -->
+                <div class="space-y-3">
+                    ${itemsHtml}
+                </div>
+
+                <!-- Подсказка о бесплатной доставке -->
+                <div class="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-3.5 text-xs text-amber-300 flex items-center gap-2.5">
+                    <span class="text-base">🛵</span>
+                    ${remainingForFree > 0 
+                        ? `Добавьте ещё на <strong>${remainingForFree} сом</strong> для бесплатной доставки.`
+                        : `<strong>Отлично!</strong> Для вас действует бесплатная доставка.`
+                    }
+                </div>
+
+                <!-- Форма оформления заказа -->
+                <form id="checkout-form" onsubmit="handleCheckout(event)" class="space-y-3.5 pt-2 border-t border-white/10">
+                    <h3 class="text-sm font-bold text-white uppercase tracking-wider">Данные для доставки</h3>
+                    
+                    <div>
+                        <label class="block text-xs text-zinc-400 mb-1">Ваше имя *</label>
+                        <input type="text" id="order-name" required placeholder="Например, Азамат" class="w-full bg-graphite-800 border border-white/10 focus:border-amber-500/60 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-zinc-400 mb-1">Телефон *</label>
+                        <input type="tel" id="order-phone" required placeholder="+996 (___) __-__-__" class="w-full bg-graphite-800 border border-white/10 focus:border-amber-500/60 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-zinc-400 mb-1">Адрес доставки *</label>
+                        <input type="text" id="order-address" required placeholder="Улица, дом, квартира" class="w-full bg-graphite-800 border border-white/10 focus:border-amber-500/60 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none">
+                    </div>
+
+                    <p id="form-error" class="hidden text-xs text-rose-400 font-medium"></p>
+                </form>
+            `;
+
+            // Обновление итогов в футере
+            cartSubtotalEl.textContent = `${subtotal} сом`;
+            cartDeliveryEl.textContent = deliveryCost === 0 ? 'Бесплатно' : `${deliveryCost} сом`;
+            cartTotalEl.textContent = `${total} сом`;
+            cartFooterEl.classList.remove('hidden');
+        }
+
+        function handleCheckout(event) {
+            event.preventDefault();
+            const name = document.getElementById('order-name').value.trim();
+            const phone = document.getElementById('order-phone').value.trim();
+            const address = document.getElementById('order-address').value.trim();
+            const errorEl = document.getElementById('form-error');
+
+            if (!name || !phone || !address) {
+                errorEl.textContent = 'Пожалуйста, заполните все обязательные поля.';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+
+            // Очищаем корзину и показываем статус успешного заказа
+            state.cart = [];
+            state.orderSuccess = true;
+            updateCartBadge();
+            renderCart();
+            showToast('Заказ успешно оформлен! Ожидайте звонка курьера.');
+        }
+
+        // ==================== УВЕДОМЛЕНИЯ (TOAST) ====================
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'pointer-events-auto bg-graphite-800/95 backdrop-blur-md border border-amber-500/40 text-white text-sm font-medium px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 transform translate-y-2 opacity-0 transition-all duration-300';
+            toast.innerHTML = `
+                <span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span>
+                <span>${message}</span>
+            `;
+            toastContainerEl.appendChild(toast);
+
+            // Плавное появление
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            });
+
+            // Автоматическое удаление
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // ==================== СОБЫТИЯ И ИНИЦИАЛИЗАЦИЯ ====================
+        document.getElementById('open-cart-btn').addEventListener('click', openCart);
+
+        searchInputEl.addEventListener('input', (e) => {
+            state.searchQuery = e.target.value;
+            if (state.searchQuery.length > 0) {
+                clearSearchBtn.classList.remove('hidden');
+            } else {
+                clearSearchBtn.classList.add('hidden');
+            }
+            renderMenu();
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            state.searchQuery = '';
+            searchInputEl.value = '';
+            clearSearchBtn.classList.add('hidden');
+            renderMenu();
+            searchInputEl.focus();
+        });
+
+        // Закрытие модалок по клавише Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeDishModal();
+                closeCart();
+            }
+        });
+
+        // Стартовый рендер
+        renderCategories();
+        renderMenu();
+    </script>
+</body>
+</html>
